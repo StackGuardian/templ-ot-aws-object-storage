@@ -29,7 +29,7 @@ tofu test -test-directory=tests/integration   # needs cloud credentials
 | U-06 | Unit | Both buckets use SSE-S3 by default | done |
 | U-07 | Unit | A KMS key ARN switches the data bucket to SSE-KMS, the log bucket stays on SSE-S3 | done |
 | U-08 | Unit | An invalid `kms_key_arn` is rejected | done |
-| U-09 | Unit | Bucket policies deny requests without TLS, the data bucket policy also denies TLS below 1.2 | done |
+| U-09 | Unit | Bucket policies of both buckets deny requests without TLS and below TLS 1.2 | done |
 | U-10 | Unit | Versioning is on by default | done |
 | U-11 | Unit | `versioning_enabled = false` suspends versioning and removes the noncurrent version rule | done |
 | U-12 | Unit | Old versions expire after 30 days by default | done |

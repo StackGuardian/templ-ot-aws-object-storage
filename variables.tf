@@ -4,8 +4,8 @@ variable "name_prefix" {
   default     = "demo"
 
   validation {
-    condition     = can(regex("^[a-z][a-z0-9-]{1,15}$", var.name_prefix)) && !endswith(var.name_prefix, "-")
-    error_message = "Use 2-16 lowercase letters, digits or hyphens, starting with a letter and not ending with a hyphen."
+    condition     = can(regex("^[a-z][a-z0-9-]{1,15}$", var.name_prefix))
+    error_message = "Use 2-16 lowercase letters, digits or hyphens, starting with a letter."
   }
 }
 

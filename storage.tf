@@ -208,6 +208,16 @@ resource "aws_s3_bucket_policy" "logs" {
           Bool = { "aws:SecureTransport" = "false" }
         }
       },
+      {
+        Sid       = "DenyOldTlsVersions"
+        Effect    = "Deny"
+        Principal = "*"
+        Action    = "s3:*"
+        Resource  = [aws_s3_bucket.logs.arn, "${aws_s3_bucket.logs.arn}/*"]
+        Condition = {
+          NumericLessThan = { "s3:TlsVersion" = "1.2" }
+        }
+      },
     ]
   })
 

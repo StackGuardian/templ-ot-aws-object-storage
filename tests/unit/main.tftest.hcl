@@ -147,11 +147,14 @@ run "bucket_policies_deny_insecure_transport" {
   }
 
   assert {
-    condition = anytrue([
-      for s in jsondecode(aws_s3_bucket_policy.data.policy).Statement :
-      s.Effect == "Deny" && try(s.Condition.NumericLessThan["s3:TlsVersion"], "") == "1.2"
+    condition = alltrue([
+      for p in [aws_s3_bucket_policy.data.policy, aws_s3_bucket_policy.logs.policy] :
+      anytrue([
+        for s in jsondecode(p).Statement :
+        s.Effect == "Deny" && try(s.Condition.NumericLessThan["s3:TlsVersion"], "") == "1.2"
+      ])
     ])
-    error_message = "The data bucket policy must deny TLS versions below 1.2."
+    error_message = "Both bucket policies must deny TLS versions below 1.2."
   }
 }
 

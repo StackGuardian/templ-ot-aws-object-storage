@@ -14,8 +14,8 @@ flowchart LR
 ```
 
 - Data bucket: public access block (all four settings), ACLs off (`BucketOwnerEnforced`), SSE-S3 (SSE-KMS optional), versioning, lifecycle rule for old versions
-- Bucket policy: denies requests without TLS and below TLS 1.2
-- Log bucket: same protections, receives the server access logs of the data bucket and expires them after `log_retention_days`
+- Bucket policies (both buckets): deny requests without TLS and below TLS 1.2
+- Log bucket: same public access block, ACL and encryption settings, receives the server access logs of the data bucket and expires them after `log_retention_days`
 - Bucket names get a random suffix, because they are global
 
 ## Security

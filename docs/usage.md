@@ -7,7 +7,7 @@ Use it when an application or a demo needs a secure place to store objects. For 
 ## What gets created
 
 - A data bucket with all four public access settings on, ACLs disabled, encryption, versioning and a lifecycle rule for old versions
-- A bucket policy that denies requests without TLS and requests below TLS 1.2
+- Bucket policies that deny requests without TLS and requests below TLS 1.2, on both buckets
 - A log bucket that receives the server access logs of the data bucket and deletes them after the retention period
 
 ## Before you start
