@@ -1,0 +1,49 @@
+{
+  "name_prefix": {
+    "ui:title": "Name Prefix",
+    "ui:description": "Prefix for all resource names"
+  },
+  "region": {
+    "ui:title": "Region",
+    "ui:description": "AWS region"
+  },
+  "advanced_settings": {
+    "show_advanced_settings": {
+      "ui:title": "Show advanced settings"
+    },
+    "versioning_enabled": {
+      "ui:title": "Versioning Enabled"
+    },
+    "noncurrent_version_expiration_days": {
+      "ui:title": "Old Version Expiration Days"
+    },
+    "kms_key_arn": {
+      "ui:title": "KMS Key ARN"
+    },
+    "log_retention_days": {
+      "ui:title": "Access Log Retention Days"
+    },
+    "force_destroy": {
+      "ui:title": "Force Destroy"
+    },
+    "tags": {
+      "ui:title": "Tags"
+    },
+    "ui:order": [
+      "show_advanced_settings",
+      "versioning_enabled",
+      "noncurrent_version_expiration_days",
+      "kms_key_arn",
+      "log_retention_days",
+      "force_destroy",
+      "tags"
+    ],
+    "ui:title": "Advanced Settings",
+    "ui:description": "Optional settings, most deployments keep the defaults"
+  },
+  "ui:order": [
+    "name_prefix",
+    "region",
+    "advanced_settings"
+  ]
+}
